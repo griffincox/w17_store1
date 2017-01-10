@@ -6,13 +6,31 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Cart</dt>
-      <dd><%= @productitem.cart_id %></dd>
+      <dd>
+        <% if @productitem.cart.present? %>
+          <a href="/carts/<%= @productitem.cart_id %>">
+            <%= @productitem.cart.user_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Order</dt>
-      <dd><%= @productitem.order_id %></dd>
+      <dd>
+        <% if @productitem.order.present? %>
+          <a href="/orders/<%= @productitem.order_id %>">
+            <%= @productitem.order.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Item</dt>
-      <dd><%= @productitem.item_id %></dd>
+      <dd>
+        <% if @productitem.item.present? %>
+          <a href="/items/<%= @productitem.item_id %>">
+            <%= @productitem.item.name %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

@@ -23,7 +23,13 @@
 
       <% @addresses.each do |address| %>
       <tr>
-        <td><%= address.user.email %></td>
+        <td>
+          <% if address.user.present? %>
+            <a href="/users/<%= address.user.id %>">
+              <%= address.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= address.address_type %></td>
         <td><%= address.street_address1 %></td>
         <td><%= address.unit_number %></td>

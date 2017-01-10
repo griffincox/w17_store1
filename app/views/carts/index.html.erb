@@ -15,7 +15,13 @@
 
       <% @carts.each do |cart| %>
       <tr>
-        <td><%= cart.user.email %></td>
+        <td>
+          <% if cart.user.present? %>
+            <a href="/users/<%= cart.user.id %>">
+              <%= cart.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/carts/<%= cart.id %>" class="btn btn-primary">Show</a>
           <a href="/carts/<%= cart.id %>/edit" class="btn btn-warning">Edit</a>

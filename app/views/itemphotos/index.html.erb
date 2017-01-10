@@ -16,7 +16,13 @@
 
       <% @itemphotos.each do |itemphoto| %>
       <tr>
-        <td><%= itemphoto.item.name %></td>
+        <td>
+          <% if itemphoto.item.present? %>
+            <a href="/items/<%= itemphoto.item.id %>">
+              <%= itemphoto.item.name %>
+            </a>
+          <% end %>
+        </td>
         <td><img src='<%= itemphoto.image %>' class='img-responsive'></td>
         <td>
           <a href="/itemphotos/<%= itemphoto.id %>" class="btn btn-primary">Show</a>

@@ -17,9 +17,27 @@
 
       <% @productitems.each do |productitem| %>
       <tr>
-        <td><%= productitem.cart.user_id %></td>
-        <td><%= productitem.order.name %></td>
-        <td><%= productitem.item.name %></td>
+        <td>
+          <% if productitem.cart.present? %>
+            <a href="/carts/<%= productitem.cart.id %>">
+              <%= productitem.cart.user_id %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if productitem.order.present? %>
+            <a href="/orders/<%= productitem.order.id %>">
+              <%= productitem.order.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if productitem.item.present? %>
+            <a href="/items/<%= productitem.item.id %>">
+              <%= productitem.item.name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/productitems/<%= productitem.id %>" class="btn btn-primary">Show</a>
           <a href="/productitems/<%= productitem.id %>/edit" class="btn btn-warning">Edit</a>
