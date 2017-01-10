@@ -24,7 +24,7 @@
           Item
         </label>
 
-        <input type="text" id="item_id" name="item_id" placeholder="Item" class="form-control" value="<%= @itemphoto.item_id %>">
+        <%= select_tag(:item_id, options_from_collection_for_select(Item.all, :id, :name, @itemphoto.item_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for image -->
