@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Cart resource:
+  # CREATE
+  get "/carts/new", :controller => "carts", :action => "new"
+  post "/create_cart", :controller => "carts", :action => "create"
+
+  # READ
+  get "/carts", :controller => "carts", :action => "index"
+  get "/carts/:id", :controller => "carts", :action => "show"
+
+  # UPDATE
+  get "/carts/:id/edit", :controller => "carts", :action => "edit"
+  post "/update_cart/:id", :controller => "carts", :action => "update"
+
+  # DELETE
+  get "/delete_cart/:id", :controller => "carts", :action => "destroy"
+  #------------------------------
+
   # Routes for the Address resource:
   # CREATE
   get "/addresses/new", :controller => "addresses", :action => "new"
