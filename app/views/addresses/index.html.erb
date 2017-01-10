@@ -23,7 +23,7 @@
 
       <% @addresses.each do |address| %>
       <tr>
-        <td><%= address.user_id %></td>
+        <td><%= address.user.email %></td>
         <td><%= address.address_type %></td>
         <td><%= address.street_address1 %></td>
         <td><%= address.unit_number %></td>
