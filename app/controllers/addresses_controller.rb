@@ -10,7 +10,7 @@ class AddressesController < ApplicationController
   end
 
   def index
-    @addresses = Address.all
+    @addresses = Address.page(params[:page]).per(10)
 
     render("addresses/index.html.erb")
   end

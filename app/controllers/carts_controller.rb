@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   def index
-    @carts = Cart.all
+    @carts = Cart.page(params[:page]).per(10)
 
     render("carts/index.html.erb")
   end

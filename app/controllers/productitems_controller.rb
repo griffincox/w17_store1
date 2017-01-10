@@ -1,6 +1,6 @@
 class ProductitemsController < ApplicationController
   def index
-    @productitems = Productitem.all
+    @productitems = Productitem.page(params[:page]).per(10)
 
     render("productitems/index.html.erb")
   end
