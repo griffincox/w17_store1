@@ -6,6 +6,7 @@ class CartsController < ApplicationController
   end
 
   def show
+    @productitem = Productitem.new
     @cart = Cart.find(params[:id])
 
     render("carts/show.html.erb")

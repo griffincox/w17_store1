@@ -57,6 +57,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_itemphoto" method="post" enctype="multipart/form-data">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for item_id -->
+      <input type="hidden" name="item_id" value="<%= @item.id %>">
+
+      <!-- Label and input for image -->
+      <div class="form-group">
+        <label for="image" class="control-label">
+          Image
+        </label>
+
+        <input type="file" id="image" name="image" class="form-control">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Itemphoto
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -88,6 +111,38 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_productitem" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for cart_id -->
+      <div class="form-group">
+        <label for="cart_id" class="control-label">
+          Cart
+        </label>
+
+        <%= select_tag(:cart_id, options_from_collection_for_select(Cart.all, :id, :user_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for order_id -->
+      <div class="form-group">
+        <label for="order_id" class="control-label">
+          Order
+        </label>
+
+        <%= select_tag(:order_id, options_from_collection_for_select(Order.all, :id, :name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for item_id -->
+      <input type="hidden" name="item_id" value="<%= @item.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Productitem
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

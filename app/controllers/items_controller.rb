@@ -6,6 +6,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @productitem = Productitem.new
+    @itemphoto = Itemphoto.new
     @item = Item.find(params[:id])
 
     render("items/show.html.erb")
