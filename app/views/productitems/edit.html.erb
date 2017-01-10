@@ -24,7 +24,7 @@
           Cart
         </label>
 
-        <input type="text" id="cart_id" name="cart_id" placeholder="Cart" class="form-control" value="<%= @productitem.cart_id %>">
+        <%= select_tag(:cart_id, options_from_collection_for_select(Cart.all, :id, :user_id, @productitem.cart_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for order_id -->
