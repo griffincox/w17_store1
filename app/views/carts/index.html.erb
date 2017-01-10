@@ -15,7 +15,7 @@
 
       <% @carts.each do |cart| %>
       <tr>
-        <td><%= cart.user_id %></td>
+        <td><%= cart.user.email %></td>
         <td>
           <a href="/carts/<%= cart.id %>" class="btn btn-primary">Show</a>
           <a href="/carts/<%= cart.id %>/edit" class="btn btn-warning">Edit</a>
