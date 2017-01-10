@@ -1,5 +1,7 @@
 ActiveAdmin.register Productitem do
 
+ permit_params :cart_id, :order_id, :item_id
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
