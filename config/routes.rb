@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Productitem resource:
+  # CREATE
+  get "/productitems/new", :controller => "productitems", :action => "new"
+  post "/create_productitem", :controller => "productitems", :action => "create"
+
+  # READ
+  get "/productitems", :controller => "productitems", :action => "index"
+  get "/productitems/:id", :controller => "productitems", :action => "show"
+
+  # UPDATE
+  get "/productitems/:id/edit", :controller => "productitems", :action => "edit"
+  post "/update_productitem/:id", :controller => "productitems", :action => "update"
+
+  # DELETE
+  get "/delete_productitem/:id", :controller => "productitems", :action => "destroy"
+  #------------------------------
+
   # Routes for the Order resource:
   # CREATE
   get "/orders/new", :controller => "orders", :action => "new"

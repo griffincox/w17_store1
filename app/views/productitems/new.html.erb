@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @productitem.errors.any? %>
+  <% @productitem.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Productitem</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_productitem" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for cart_id -->
+      <div class="form-group">
+        <label for="cart_id" class="control-label">
+          Cart
+        </label>
+
+        <input type="text" id="cart_id" name="cart_id" placeholder="Cart" class="form-control" value="<%= @productitem.cart_id %>">
+      </div>
+
+      <!-- Label and input for order_id -->
+      <div class="form-group">
+        <label for="order_id" class="control-label">
+          Order
+        </label>
+
+        <input type="text" id="order_id" name="order_id" placeholder="Order" class="form-control" value="<%= @productitem.order_id %>">
+      </div>
+
+      <!-- Label and input for item_id -->
+      <div class="form-group">
+        <label for="item_id" class="control-label">
+          Item
+        </label>
+
+        <input type="text" id="item_id" name="item_id" placeholder="Item" class="form-control" value="<%= @productitem.item_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Productitem
+      </button>
+      or
+      <a href="/productitems">Cancel</a>
+    </form>
+  </div>
+</div>
