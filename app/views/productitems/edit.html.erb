@@ -33,7 +33,7 @@
           Order
         </label>
 
-        <input type="text" id="order_id" name="order_id" placeholder="Order" class="form-control" value="<%= @productitem.order_id %>">
+        <%= select_tag(:order_id, options_from_collection_for_select(Order.all, :id, :name, @productitem.order_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for item_id -->
