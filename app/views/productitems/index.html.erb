@@ -18,7 +18,7 @@
       <% @productitems.each do |productitem| %>
       <tr>
         <td><%= productitem.cart.user_id %></td>
-        <td><%= productitem.order_id %></td>
+        <td><%= productitem.order.name %></td>
         <td><%= productitem.item_id %></td>
         <td>
           <a href="/productitems/<%= productitem.id %>" class="btn btn-primary">Show</a>
