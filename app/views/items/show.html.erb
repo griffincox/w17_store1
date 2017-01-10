@@ -29,3 +29,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Item has many itemphotos -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Itemphotos
+      </li>
+
+      <% @item.itemphotos.each do |itemphoto| %>
+        <li class="list-group-item">
+          <a href="/itemphotos/<%= itemphoto.id %>">
+            <%= itemphoto.item_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/itemphotos/<%= itemphoto.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/itemphotos/<%= itemphoto.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_itemphoto/<%= itemphoto.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Item has many productitems -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Productitems
+      </li>
+
+      <% @item.productitems.each do |productitem| %>
+        <li class="list-group-item">
+          <a href="/productitems/<%= productitem.id %>">
+            <%= productitem.cart_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/productitems/<%= productitem.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/productitems/<%= productitem.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_productitem/<%= productitem.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

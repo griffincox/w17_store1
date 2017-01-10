@@ -26,3 +26,65 @@
     </div>
   </div>
 </div>
+
+<!-- A User has many addresses -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Addresses
+      </li>
+
+      <% @user.addresses.each do |address| %>
+        <li class="list-group-item">
+          <a href="/addresses/<%= address.id %>">
+            <%= address.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/addresses/<%= address.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/addresses/<%= address.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_address/<%= address.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many carts -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Carts
+      </li>
+
+      <% @user.carts.each do |cart| %>
+        <li class="list-group-item">
+          <a href="/carts/<%= cart.id %>">
+            <%= cart.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/carts/<%= cart.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/carts/<%= cart.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_cart/<%= cart.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
