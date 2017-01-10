@@ -54,8 +54,6 @@ class AddressesController < ApplicationController
 
   def update
     @address = Address.find(params[:id])
-
-    @address.user_id = params[:user_id]
     @address.address_type = params[:address_type]
     @address.street_address1 = params[:street_address1]
     @address.unit_number = params[:unit_number]
