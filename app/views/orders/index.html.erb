@@ -1,0 +1,38 @@
+<div class="page-header">
+  <h1>
+    Orders
+    <a href="/orders/new" class="btn btn-lg btn-success">New Order</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>Country</th>
+        <th>Shipped</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.name %></td>
+        <td><%= order.email %></td>
+        <td><%= order.address %></td>
+        <td><%= order.city %></td>
+        <td><%= order.country %></td>
+        <td><%= order.shipped %></td>
+        <td>
+          <a href="/orders/<%= order.id %>" class="btn btn-primary">Show</a>
+          <a href="/orders/<%= order.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_order/<%= order.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

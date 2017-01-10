@@ -1,0 +1,40 @@
+<div class="page-header">
+  <h3>Order #<%= @order.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Name</dt>
+      <dd><%= @order.name %></dd>
+
+      <dt>Email</dt>
+      <dd><%= @order.email %></dd>
+
+      <dt>Address</dt>
+      <dd><%= @order.address %></dd>
+
+      <dt>City</dt>
+      <dd><%= @order.city %></dd>
+
+      <dt>Country</dt>
+      <dd><%= @order.country %></dd>
+
+      <dt>Shipped</dt>
+      <dd><%= @order.shipped %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/orders" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/orders/<%= @order.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_order/<%= @order.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
