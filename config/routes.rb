@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Itemphoto resource:
+  # CREATE
+  get "/itemphotos/new", :controller => "itemphotos", :action => "new"
+  post "/create_itemphoto", :controller => "itemphotos", :action => "create"
+
+  # READ
+  get "/itemphotos", :controller => "itemphotos", :action => "index"
+  get "/itemphotos/:id", :controller => "itemphotos", :action => "show"
+
+  # UPDATE
+  get "/itemphotos/:id/edit", :controller => "itemphotos", :action => "edit"
+  post "/update_itemphoto/:id", :controller => "itemphotos", :action => "update"
+
+  # DELETE
+  get "/delete_itemphoto/:id", :controller => "itemphotos", :action => "destroy"
+  #------------------------------
+
   # Routes for the Item resource:
   # CREATE
   get "/items/new", :controller => "items", :action => "new"
