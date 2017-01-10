@@ -10,7 +10,8 @@ class AddressesController < ApplicationController
   end
 
   def index
-    @addresses = Address.page(params[:page]).per(10)
+    @q = Address.ransack(params[:q])
+    @addresses = @q.result(:distinct => true).includes(:user).page(params[:page]).per(10)
 
     render("addresses/index.html.erb")
   end

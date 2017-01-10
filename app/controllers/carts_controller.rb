@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
   def index
-    @carts = Cart.page(params[:page]).per(10)
+    @q = Cart.ransack(params[:q])
+    @carts = @q.result(:distinct => true).includes(:user, :productitems).page(params[:page]).per(10)
 
     render("carts/index.html.erb")
   end

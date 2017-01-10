@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   def index
-    @orders = Order.page(params[:page]).per(10)
+    @q = Order.ransack(params[:q])
+    @orders = @q.result(:distinct => true).includes(:productitems).page(params[:page]).per(10)
 
     render("orders/index.html.erb")
   end
